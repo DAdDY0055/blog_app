@@ -41,9 +41,15 @@ footer {
 
 html {
   position: relative;
-  min-height: 100%;
+  min-height: 110%;
 }
 
 body {
   text-align: center;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
 }
