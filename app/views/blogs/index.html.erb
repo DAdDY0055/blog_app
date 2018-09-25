@@ -9,13 +9,13 @@
         <h2>Tiltle : <%= blog.title %></h2>
         <p class="bg-success">content : <%= blog.content %></p>
         
-        <li class="col-sm-12">
+        <li class="col-md-12">
           <p class="bg-info"><%= link_to 'Show', blog %></p>
         </li>
-        <li class="col-sm-6">
+        <li class="col-md-6">
           <p class="bg-warning"><%= link_to 'Edit', edit_blog_path(blog) %></p>
         </li>
-        <li class="col-sm-6">
+        <li class="col-md-6">
           <p class="bg-danger"><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></p>    
         </li>
       </ul>
