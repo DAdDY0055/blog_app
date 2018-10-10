@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create, :show]
+
   get 'tops/index'
 
   get '/', to: 'tops#index' 
@@ -8,6 +11,5 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  
-  resources :users, only: [:new, :create, :show]
+
 end
