@@ -13,12 +13,16 @@
         <li class="col-md-12">
           <p class="bg-info"><%= link_to 'Show', blog %></p>
         </li>
-        <li class="col-md-6">
-          <p class="bg-warning"><%= link_to 'Edit', edit_blog_path(blog) %></p>
-        </li>
-        <li class="col-md-6">
-          <p class="bg-danger"><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></p>    
-        </li>
+        
+        <% if blog.user_id == current_user.id %>
+          <li class="col-md-6">
+            <p class="bg-warning"><%= link_to 'Edit', edit_blog_path(blog) %></p>
+          </li>
+          <li class="col-md-6">
+            <p class="bg-danger"><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></p>    
+          </li>
+        <% end %>
+        
       </ul>
     </div>
   </div>

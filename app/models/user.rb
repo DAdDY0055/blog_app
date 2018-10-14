@@ -6,4 +6,5 @@ class User < ApplicationRecord
   validates :password_digest, presence: true, length: { minimum: 6 }
   has_many :blogs
   has_many :favorites, dependent: :destroy
+  has_many :favorites_blogs, through: :favorites, source: :blog
 end
