@@ -29,6 +29,9 @@ class BlogsController < ApplicationController
   end
   
   def edit
+    unless @blog.user_id == current_user.id
+      redirect_to root_path
+    end
   end
   
   def update
