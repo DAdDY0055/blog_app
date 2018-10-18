@@ -1,7 +1,7 @@
-class BlogMailer < 
+class BlogMailer < ApplicationMailer
   def blog_mail(blog)
     @blog = blog
     
-    mail to:"", subject: "投稿完了メール"
+    mail to: "@blog.user.email", subject: "投稿完了メール"
   end
 end

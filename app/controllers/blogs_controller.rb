@@ -1,7 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:new, :edit, :show, :destroy]
-  after_action  :contacts_path, only: [:create]
   
   def index
     @blogs = Blog.all
