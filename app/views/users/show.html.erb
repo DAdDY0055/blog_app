@@ -6,7 +6,7 @@
 
 <h1><%= @user.name %>のページ</h1>
 
-<div>
+
 <p>メールアドレス: <%= @user.email %></p>
 
 <% unless @user.image.url.nil? %>
@@ -14,11 +14,9 @@
 <% end %>
 
 <%= form_with(model: @user, local: true) do |form| %>
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-    <%= form.submit "アイコンを登録する" %>
+  <p class="file_upload"><%= form.file_field :image %></p>
+  <p class="file_upload"><%= form.submit "アイコンを登録する" %></p>
 <% end %>
-</div>
 
 <p class="bg-primary">お気に入りブログ一覧</p>
 
