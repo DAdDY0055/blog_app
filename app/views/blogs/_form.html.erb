@@ -25,7 +25,7 @@
     </p>
   </div>
   <div class="blog_title">
-  <p>
+  <p class="file_upload">
     <%= form.label :画像 %>
     <%= image_tag(@blog.image.url) if @blog.image.url %>
     <%= form.file_field :image %>
