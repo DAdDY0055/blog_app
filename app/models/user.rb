@@ -4,6 +4,7 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   has_secure_password
   validates :password_digest, presence: true, length: { minimum: 6 }
+  mount_uploader :image, ImageUploader
   has_many :blogs
   has_many :favorites, dependent: :destroy
   has_many :favorites_blogs, through: :favorites, source: :blog

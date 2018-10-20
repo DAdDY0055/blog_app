@@ -20,6 +20,11 @@
     <%= form.label :内容 %>
     <%= form.text_field :content %>
   </div>
+  <div class="blog_title">
+    <%= form.label :画像 %>
+    <%= image_tag(@blog.image.url) if @blog.image.url %>
+    <%= form.file_field :image %>
+  </div>
   <%= form.submit %>
 <% end %>
 
