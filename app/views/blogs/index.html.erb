@@ -1,5 +1,7 @@
 <h1>Takuya's Blogs</h1>
 
+<h2><%= notice %></h2>
+
 <p class="bg-primary">ブログ一覧</p>
 
 <% @blogs.each do |blog| %>
@@ -9,8 +11,9 @@
         <h2>タイトル : <%= blog.title %></h2>
         <p class="bg-success">内容 : <%= blog.content %></p>
         <p class="bg-success">投稿者 : <%= blog.user.name %></p>
-        <p class="bg-success">画像 : <%= image_tag blog.image.url %></p>
-        
+        <% unless blog.image_url.nil? %>
+          <p class="bg-success">画像 : <%= image_tag blog.image.url %></p>
+        <% end %>
         <li class="col-md-12">
           <p class="bg-info"><%= link_to 'Show', blog %></p>
         </li>

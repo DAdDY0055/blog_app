@@ -1,6 +1,24 @@
+<% unless notice.nil? %>
+  <div class="error">
+    <h2><%= notice %></h2>
+  </div>
+<% end %>
+
 <h1><%= @user.name %>のページ</h1>
 
+<div>
 <p>メールアドレス: <%= @user.email %></p>
+
+<% unless @user.image.url.nil? %>
+  <p>アイコン: <%= image_tag @user.image.url %></p>
+<% end %>
+
+<%= form_with(model: @user, local: true) do |form| %>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+    <%= form.submit "アイコンを登録する" %>
+<% end %>
+</div>
 
 <p class="bg-primary">お気に入りブログ一覧</p>
 
@@ -11,6 +29,9 @@
         <h2>Tiltle : <%= blog.title %></h2>
         <p class="bg-success">content : <%= blog.content %></p>
         <p class="bg-success">user_name : <%= blog.user.name %></p>
+        <% unless blog.image_url.nil? %>
+          <p class="bg-success">画像 : <%= image_tag blog.image.url %></p>
+        <% end %>
         <li class="col-md-12">
           <p class="bg-info"><%= link_to 'Show', blog %></p>
         </li>

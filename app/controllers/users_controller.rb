@@ -17,9 +17,18 @@ class UsersController < ApplicationController
     @favorites_blogs = @user.favorites_blogs
   end
   
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path, notice: "アイコンを編集しました!"
+    else
+      render 'show'
+    end
+  end
+  
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :image_cache)
   end
 end
