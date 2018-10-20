@@ -13,19 +13,27 @@
   <% end %>
 
   <div class="blog_title">
-    <%= form.label :タイトル %>
-    <%= form.text_field :title %>
+    <p>
+      <%= form.label :タイトル %>
+      <%= form.text_field :title %>
+    </p>
   </div>
   <div class="blog_title">
-    <%= form.label :内容 %>
-    <%= form.text_field :content %>
+    <p>
+      <%= form.label :内容 %>
+      <%= form.text_field :content %>
+    </p>
   </div>
   <div class="blog_title">
+  <p>
     <%= form.label :画像 %>
     <%= image_tag(@blog.image.url) if @blog.image.url %>
     <%= form.file_field :image %>
+  </p>
   </div>
-  <%= form.submit %>
+  <p>
+    <%= form.submit %>
+  </p>
 <% end %>
 
-<%= link_to "ブログ一覧画面にもどる", blogs_path %>
+<p><%= link_to "ブログ一覧画面にもどる", blogs_path %></p>
