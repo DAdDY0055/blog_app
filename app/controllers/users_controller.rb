@@ -19,10 +19,10 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      redirect_to user_path, notice: "アイコンを編集しました!"
+    unless @user.image.url.nil?
+      redirect_to user_path
     else
-      render 'show'
+      redirect_to user_path, notice: "アイコンを選択してください"
     end
   end
   
