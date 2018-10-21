@@ -5,3 +5,9 @@
 <h4>内容: <%= @blog.content %></h4>
 
 <h4>投稿者: <%= @blog.user.name %></h4>
+
+<h4>
+  <% unless @blog.image.nil? %>
+    画像 : <%= image_tag @blog.image %></p>
+  <% end %>
+</h4>
