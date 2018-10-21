@@ -19,35 +19,15 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
+    #アイコン用画像が添付されたか確認
     if params[:user].nil?
+      #アイコン用画像が添付されてない場合、リダイレクトしてMSG表示
       redirect_to user_path(@user.id), notice: "変更するアイコンを選択してください"
     else
+      #アイコン用画像が添付されている場合、Userテーブルをupdate後、リダイレクトしてMSG表示
       @user.update(user_params)
       redirect_to user_path, notice: "アイコンが変更されました!"
     end
-    
-    #binding.pry
-    #if @user.update(user_params)
-    #  redirect_to user_path, notice: "アイコンが変更されました!"
-    #else
-    #  binding.pry
-    #  redirect_to "users#show", notice: "変更するアイコンを選択してください"
-    #end
-
-    #プロフィール画像が変更されたか
-    #binding.pry
-    #unless @user.image.filename #@user.image_changed?
-    #  redirect_to user_path, notice: "アイコンが変更されました!"
-    #else
-    #  redirect_to user_path, notice: "変更するアイコンを選択してください"
-    #end
-    #プロフィール画像が登録されているか確認
-    #unless @user.image.url.nil?
-    #  redirect_to user_path
-    #else
-      #プロフィール画像が登録されていない場合
-    #  redirect_to user_path, notice: "アイコンを選択してください"
-    #end
   end
   
   private
